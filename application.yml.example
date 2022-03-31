@@ -1,0 +1,3 @@
+ISSUER_IDS: "123,456"
+SOURCE_EMAIL: "email1@gmail.com"
+EMAILS: "email1@gmail.com,email2@gmail.com"

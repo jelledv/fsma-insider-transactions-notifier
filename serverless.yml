@@ -1,0 +1,36 @@
+service: fsma-notifier
+frameworkVersion: '3'
+configValidationMode: error
+
+provider:
+  name: aws
+  profile: private
+  region: eu-central-1
+  ecr:
+    images:
+      fsma-notifier:
+        path: ./
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - 'ses:SendEmail'
+            - 'ses:SendRawEmail'
+          Resource: '*'
+
+custom:
+  CONFIG: ${file(application.yml)}
+
+functions:
+  fsma-notifier:
+    image: fsma-notifier
+    timeout: 900
+    environment:
+      ISSUER_IDS: ${self:custom.CONFIG.ISSUER_IDS}
+      SOURCE_EMAIL: ${self:custom.CONFIG.SOURCE_EMAIL}
+      EMAILS: ${self:custom.CONFIG.EMAILS}
+    events:
+      - schedule: cron(0 22 ? * MON-FRI *) # 10:00 PM Monday through Friday
+
+
