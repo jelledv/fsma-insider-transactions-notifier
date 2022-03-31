@@ -1,4 +1,4 @@
-service: fsma-notifier
+service: fsma-insider-transactions
 frameworkVersion: '3'
 configValidationMode: error
 
