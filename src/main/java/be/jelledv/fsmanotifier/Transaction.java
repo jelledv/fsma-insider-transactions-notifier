@@ -1,4 +1,4 @@
-package be.dataminded.fsmanotifier;
+package be.jelledv.fsmanotifier;
 
 import java.util.StringJoiner;
 

@@ -1,4 +1,4 @@
-package be.dataminded.fsmanotifier;
+package be.jelledv.fsmanotifier;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
@@ -87,7 +87,7 @@ public class FsmaNotifier implements RequestHandler<ScheduledEvent, Void> {
         FsmaNotifier fsmaNotifier = new FsmaNotifier();
         ScheduledEvent scheduledEvent = new ScheduledEvent();
         scheduledEvent.setRegion("eu-central-1");
-        scheduledEvent.setTime(new DateTime(2022, 3, 18, 12, 0));
+        scheduledEvent.setTime(new DateTime(2022, 3, 17, 12, 0));
         fsmaNotifier.handleRequest(scheduledEvent, null);
     }
 }
